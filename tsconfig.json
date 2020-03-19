@@ -71,10 +71,5 @@
   },
   "exclude": [
     "node_modules", // would be the default
-    "./src/basic.ts",
-    "./src/functions.ts",
-    "./src/objs-arrays-enums.ts",
-    "./src/union-alias.ts",
-    "./src/unknown-never.ts"
   ]
 }
