@@ -1,4 +1,4 @@
-function add(n1: number, n2: number) {
+function addNumber(n1: number, n2: number) {
   return n1+ n2;
 }
 
@@ -16,7 +16,7 @@ function addAndHandle(n1: number, n2: number, cb: (a: number) => void) {
 //   return;
 // }
 
-printResult(add(10, 7));
+printResult(addNumber(10, 7));
 
 // undefined is also type
 // const result: undefined
@@ -30,7 +30,7 @@ printResult(add(10, 7));
 // 2 number parameter and returns number
 let combineValues: (a: number, b: number) => number;
 
-combineValues = add;
+combineValues = addNumber;
 // combineValues = printResult; // undefined
 // combineValues = 5;
 
