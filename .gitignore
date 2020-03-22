@@ -1,6 +1,7 @@
 node_modules
 build
 dist/bundle.js
+src/config/firebase-config.ts
 npm-debug.log
 .env
 .DS_Store
