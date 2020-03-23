@@ -1,7 +1,7 @@
 import * as firebase from 'firebase/app';
 import 'firebase/firestore';
-import config from './config/firebase-config';
-import { User } from './user';
+import config from '../config/firebase-config';
+import { User } from '../models/user';
 
 firebase.initializeApp(config);
 
@@ -11,6 +11,7 @@ export const addDoc = (doc: User) => {
   db.collection('user').add({
     name: doc.name,
     age: doc.age,
+    memo: doc.memo,
   })
   .then((docRef) => {
     console.log("Document ID: " + docRef.id);
@@ -24,7 +25,7 @@ export const getDoc = () => {
   db.collection('user').get().then((querySnapshot) => {
     if (!querySnapshot.empty) {
       querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${doc.data().name}`);
+        console.log(`${doc.id} => ${doc.data().name}, ${doc.data().age}, ${doc.data().memo}`);
       });
     }
   });
