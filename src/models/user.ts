@@ -1,3 +1,5 @@
+import { create } from '../database/firebase';
+
 export class User {
   constructor(private _name: string, private _age: number, private _memo: string) {}
 
@@ -11,5 +13,23 @@ export class User {
 
   get memo() {
     return this._memo;
+  }
+
+  generate() {
+    return {
+      name: this._name,
+      age: this._age,
+      memo: this._memo,
+    };
+  }
+
+  register(user: {
+    name: string;
+    age: number;
+    memo: string;
+  }) {
+    create('user', user, (result: firebase.firestore.DocumentReference) => {
+      console.log(result.id);
+    });
   }
 }
