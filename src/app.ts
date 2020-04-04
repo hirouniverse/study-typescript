@@ -1,28 +1,12 @@
-import { getDoc } from './database/firebase';
-import { User } from './models/user';
+let items = (<HTMLInputElement>document.getElementById('items-list')!);
+let taskTitle = (<HTMLInputElement>document.getElementById('title-value')!);
 
-let name = (<HTMLInputElement>document.getElementById('name')!);
-let age = (<HTMLInputElement>document.getElementById('age')!);
-let memo = (<HTMLInputElement>document.getElementById('memo')!);
-
-let message = document.getElementById('message')!;
-
-document.getElementById('item-add')?.addEventListener('click', () => {
-
-  let user = new User(name.value, +age.value, memo.value);
-  user.register(user.generate());
-
-  name.value = '';
-  age.value = '';
-  memo.value = '';
-
-  message.hidden = false;
-
-  setTimeout(() => {
-    message.hidden = true;
-  }, 1500);
-});
-
-document.getElementById('item-get')?.addEventListener('click', () => {
-  getDoc();
+document.getElementById('add-controller')?.addEventListener('click', () => {
+  let value = taskTitle.value;
+  if (value && value !== '') {
+    let item = document.createElement('li');
+    item.innerText = value;
+    items.appendChild(item);
+    taskTitle.value = '';
+  }
 });
