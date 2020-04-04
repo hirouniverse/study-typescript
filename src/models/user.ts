@@ -23,12 +23,8 @@ export class User {
     };
   }
 
-  register(user: {
-    name: string;
-    age: number;
-    memo: string;
-  }) {
-    create('user', user, (result: firebase.firestore.DocumentReference) => {
+  register(user: User) {
+    create<User>('user', user, function(result: firebase.firestore.DocumentReference) {
       console.log(result.id);
     });
   }
